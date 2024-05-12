@@ -82,23 +82,29 @@ double eps = 1e-12;
 //cout<<stoi(k)<<endl;:
 
 
+bool check(int i)
+{
+    for(int j=2; j*j<=i;j++)
+    {
+        if(i%j==0)
+        return false;
+    }
+    return true;
+}
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    int m,n;
+    cin>>m>>n;
+    for(int i=m; i<=n ;i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
+        bool p{true};
+        if(i==1)
+        continue;
         else
-        s2+='m'-s[i]+'n';
+        p=check(i);
+        if(p)
+        cout<<i<<endl;
     }
-    cout<<s2<<endl;
 }
 int main()
   {

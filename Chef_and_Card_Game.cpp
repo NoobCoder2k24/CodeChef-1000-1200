@@ -86,19 +86,41 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int c{},m{};
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
+        int a,b;
+        cin>>a>>b;
+        int sum{};
+        while(a>0)
+        {
+            sum+=a%10;
+            a/=10;
+        }
+        a=sum;
+        sum=0;
+        while(b>0)
+        {
+            sum+=b%10;
+            b/=10;
+        }
+        b=sum;
+        if(a>b)
+        c++;
+        else if(b>a)
+        m++;
         else
-        s2+='m'-s[i]+'n';
+        {
+            c++;
+            m++;
+        }
     }
-    cout<<s2<<endl;
+    if(c>m)
+    cout<<0<<" "<<c<<endl;
+    else if(m>c)
+    cout<<1<<" "<<m<<endl;
+    else
+    cout<<2<<" "<<m<<endl;
 }
 int main()
   {

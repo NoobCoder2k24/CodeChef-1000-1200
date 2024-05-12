@@ -16,6 +16,10 @@
 #include <stack>
 #include <iomanip>
 #include <fstream>
+// for big integers #include <boost/multiprecision/cpp_int.hpp> 
+// for big integers using namespace boost::multiprecision; 
+// use cpp_int as data type to handle the data
+// cpp_int count = 1;
  
 using namespace std;
  
@@ -49,7 +53,6 @@ double eps = 1e-12;
 #define sz(x) ((ll)(x).size())
  //priority in (),*,/ should be kept in consideration.
  //can also use a+b>2*c , don't need to use double;
- 
 // can use sum of integers while checking the multiple integers value
 // be aware of integer divisions while needing the double value, cast them as doubles,floats
  
@@ -81,34 +84,56 @@ double eps = 1e-12;
 //k+=n[i];
 //cout<<stoi(k)<<endl;:
 
-
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    // double x,y,z,w;
+    // cin>>x>>y>>z>>w;
+    // if(x/y==z/w || y/x==z/w || x/y==w/z || y/x==w/z|| x/z==y/w || x/z==w/y || z/x == w/y
+    // || z/x==y/w || x/w==y/z || x/w==z/y || w/x==y/z || w/x ==z/y || y/z == x/w || y/z==w/x
+    // || z/y==x/w || z/y==w/x || y/w==x/y || y/w==y/x || w/y==y/x || w/y==x/y)
+    // cout<<"Possible"<<endl;
+    // else
+    // cout<<"Impossible"<<endl;
+
+    //another approcach
+    // int a[4]={x,y,z,w};
+    // sort(a,a+4);
+    // if(a[0]*a[3]==a[1]*a[2])
+    // cout<<"Possible"<<endl;
+    // else
+    // cout<<"Impossible"<<endl;
+    
+    //3rd approach
+    // if(x*y==z*w || x*z==y*w || x*w==z*y)
+    // cout<<"Possible"<<endl;
+    // else
+    // cout<<"Impossible"<<endl;
+
+    //next permutation approach
+    int a[4];
+    int perm[]={0,1,2,3};
+    for(int i=0; i<4; i++)
+    cin>>a[i];
+    while(next_permutation(perm,perm+4))
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        if(a[perm[0]]*a[perm[3]]==a[perm[1]]*a[perm[2]])
+        {
+            cout<<"Possible"<<endl;
+            return ;
+        }
     }
-    cout<<s2<<endl;
+    cout<<"Impossible"<<endl;
 }
 int main()
   {
   fast_cin();
-  ll t;
-  cin >> t;
-  for(int i=0;i<t;i++)
+  //ll t;
+ // cin >> t;
+ // for(int i=0;i<t;i++)
 // cout << "Case #" << it+1 << ": ";
-  {
-  solve();
-  }
+  //{
+  //solve();
+  //}
+solve();
   return 0;
 }

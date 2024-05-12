@@ -88,17 +88,25 @@ void solve()
     cin>>n;
     string s;
     cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    map<char,int>m;
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        m[s[i]]++;
     }
-    cout<<s2<<endl;
+    int mi=2;
+    bool k{false};
+    for(auto i=m.begin(); i!=m.end(); i++)
+    {
+        if(i->second>1)
+        {
+            k=true;
+            mi=min(mi,i->second);
+        }
+    }
+    if(k)
+    cout<<n-mi<<endl;
+    else
+    cout<<-1<<endl;
 }
 int main()
   {

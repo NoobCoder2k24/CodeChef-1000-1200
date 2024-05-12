@@ -86,19 +86,22 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
-    {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
-    }
-    cout<<s2<<endl;
+    if(n%8==1)
+    cout<<n+3<<"LB"<<endl;
+    else if(n%8==2)
+    cout<<n+3<<"MB"<<endl;
+    else if(n%8==3)
+    cout<<n+3<<"UB"<<endl;
+    else if(n%8==4)
+    cout<<n-3<<"LB"<<endl;
+    else if(n%8==5)
+    cout<<n-3<<"MB"<<endl;
+    else if(n%8==6)
+    cout<<n-3<<"UB"<<endl;
+    else if(n%8==7)
+    cout<<n+1<<"SU"<<endl;
+    else 
+    cout<<n-1<<"SL"<<endl;
 }
 int main()
   {

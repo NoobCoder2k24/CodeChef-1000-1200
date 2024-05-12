@@ -86,19 +86,26 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    int a[n];
+    for(int i=0; i<n ;i++)
+    cin>>a[i];
+    sort(a,a+n);
+    vector<int>v;
+    for(int i=0; i<n-1; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        for(int j=i+1; j<n; j++)
+        {
+            int sum{};
+            ll p=a[i]*a[j];
+            while(p>0)
+            {
+                sum+=p%10;
+                p/=10;
+            }
+            v.push_back(sum);
+        }
     }
-    cout<<s2<<endl;
+    cout<<*max_element(v.begin(),v.end())<<endl;
 }
 int main()
   {

@@ -86,19 +86,33 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int a[n],b[n];
     for(int i=0; i<n; i++)
+      cin>>a[i];
+    int c[n];
+    for(int i=0; i<n; i++)
+      cin>>b[i];
+    int ma{},in{},r{};
+    for(int i=0 ; i<n;i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+      if(ma<=a[i]*b[i] && r<b[i])
+      {
+            ma=a[i]*b[i];
+            r=b[i];
+            in=i;
+      }
     }
-    cout<<s2<<endl;
+    cout<<in+1<<endl;
+
+    //approach
+    /*
+    1st Understand the Problem. We have to find Maximum product and then print its index,
+    if max is same then maximum rating R[i], if same then minimum index. So, MAX = store
+    maximum product, RI = Store max rating R[i] and X = Store minimum index. 
+    if(max<=l[i] * r[i] && ri<r[i]) = This line checks Maximum Product and maximum Rating,
+    Then assigned. If this satisfy, we get minimum index with max product and Rating. 
+    While printing Index add 1 , so its match the result;
+    */
 }
 int main()
   {

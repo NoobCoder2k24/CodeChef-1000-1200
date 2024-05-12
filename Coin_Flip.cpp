@@ -84,21 +84,61 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    int g;
+    cin>>g;
+    for(int j=0; j<g; j++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
+        int i,n,q;
+        cin>>i>>n>>q;
+        // char a[n];
+        // char p;
+        // if(ic==1)
+        // p='H';
+        // else
+        // p='T';
+        // for(int i=0; i<n ; i++)
+        // a[i]=p;
+        // for(int i=1; i<=n; i++)
+        // {
+        //     for(int j=0; j<i; j++)
+        //     {
+        //         if(a[j]=='H')
+        //         a[j]='T';
+        //         else
+        //         a[j]='H';
+        //     }
+        // }
+        // // for(auto i: a)
+        // // cout<<i<<" ";
+        // // cout<<endl;
+        // int count{};
+        // if(q==1)
+        // {
+        //     for(int i=0; i<n; i++)
+        //     {
+        //         if(a[i]=='H')
+        //         count++;
+        //     }
+        // }
+        // else
+        // {
+        //     for(int i=0; i<n ;i++)
+        //     {
+        //         if(a[i]=='T')
+        //         count++;
+        //     }
+        // }
+        // cout<<count<<endl;
+        if(n%2==0)
+        cout<<n/2<<endl;
         else
-        s2+='m'-s[i]+'n';
+        {
+            if(q==i)
+            cout<<n/2<<endl;
+            else
+            cout<<n/2+1<<endl;
+        }
     }
-    cout<<s2<<endl;
 }
 int main()
   {

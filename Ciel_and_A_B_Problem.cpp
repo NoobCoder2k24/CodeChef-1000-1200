@@ -16,6 +16,10 @@
 #include <stack>
 #include <iomanip>
 #include <fstream>
+// for big integers #include <boost/multiprecision/cpp_int.hpp> 
+// for big integers using namespace boost::multiprecision; 
+// use cpp_int as data type to handle the data
+// cpp_int count = 1;
  
 using namespace std;
  
@@ -49,7 +53,6 @@ double eps = 1e-12;
 #define sz(x) ((ll)(x).size())
  //priority in (),*,/ should be kept in consideration.
  //can also use a+b>2*c , don't need to use double;
- 
 // can use sum of integers while checking the multiple integers value
 // be aware of integer divisions while needing the double value, cast them as doubles,floats
  
@@ -81,34 +84,27 @@ double eps = 1e-12;
 //k+=n[i];
 //cout<<stoi(k)<<endl;:
 
-
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
-    {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
-    }
-    cout<<s2<<endl;
+    int a,b;
+    cin>>a>>b;
+    int k=a-b;
+    int r=k%10;
+    if(r==9)
+    cout<<k-1<<endl;
+    else
+    cout<<k+1<<endl;
 }
 int main()
   {
   fast_cin();
-  ll t;
-  cin >> t;
-  for(int i=0;i<t;i++)
+  //ll t;
+ // cin >> t;
+ // for(int i=0;i<t;i++)
 // cout << "Case #" << it+1 << ": ";
-  {
-  solve();
-  }
+  //{
+  //solve();
+  //}
+solve();
   return 0;
 }

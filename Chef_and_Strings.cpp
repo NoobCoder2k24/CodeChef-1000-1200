@@ -86,19 +86,16 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int a[n];
     for(int i=0; i<n; i++)
+    cin>>a[i];
+    ll sum{};
+    for(int i=1; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        if(abs(a[i]-a[i-1])>1)
+        sum+=abs(a[i]-a[i-1])-1;
     }
-    cout<<s2<<endl;
+    cout<<sum<<endl;
 }
 int main()
   {

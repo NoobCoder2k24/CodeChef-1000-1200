@@ -84,21 +84,23 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int n,x;
+    cin>>n>>x;
+    int a[n];
+    for(int i=0; i<n; i++)
+    cin>>a[i];
+    int c{},c1{};
+    c1=*max_element(a,a+n);
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
+        int k=ceil(float(a[i])/float(x));
+        if(k<=1)
+        c++;
         else
-        s2+='m'-s[i]+'n';
+        c+=k;
     }
-    cout<<s2<<endl;
+    cout<<min(c1,c)<<endl;
+
 }
 int main()
   {

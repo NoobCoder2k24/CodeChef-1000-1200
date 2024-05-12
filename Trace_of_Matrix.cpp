@@ -75,7 +75,7 @@ double eps = 1e-12;
 //     r=r*10+k;
 // }
 // cout<<r<<endl;
-//string n,k;
+//string n,k;   
 //cin>>n;
 //for(int i=(n.size()-1); i>=0; i--)
 //k+=n[i];
@@ -86,19 +86,28 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int a[n][n];
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        for(int j=0; j<n; j++)
+        cin>>a[i][j];
     }
-    cout<<s2<<endl;
+    int ans{},s{},e{};
+    for(int i=0; i<n; i++)
+    {
+        int sum{},sum2{};
+        s=i;
+        e=0;
+        while(s<n && e<n)
+        {
+            sum+=a[s][e];
+            sum2+=a[e][s];
+            s+=1;
+            e+=1;
+        }
+        ans=max(ans,max(sum,sum2));
+    }
+    cout<<ans<<endl;
 }
 int main()
   {

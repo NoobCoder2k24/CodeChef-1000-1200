@@ -84,21 +84,31 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
+    ll n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    ll a[n],sum{};
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        cin>>a[i];
+        sum+=a[i];
     }
-    cout<<s2<<endl;
+    ll as=sum/(n+1);
+    ll b[n];
+    for(int i=0; i<n; i++)
+        b[i]=a[i]-as;
+    for(auto i: b)
+    cout<<i<<" ";
+    cout<<endl;
+
+    // approach
+    /*
+    𝐵𝑖=𝐴𝑖+𝑆𝑢𝑚(𝐴𝑟𝑟𝑎𝑦𝐴)
+    Bi​=Ai​+Sum(ArrayA)
+    𝑆𝑢𝑚(𝐴𝑟𝑟𝑎𝑦𝐴)=𝑆𝑢𝑚(𝐴𝑟𝑟𝑎𝑦𝐵)÷(𝑛+1)
+    Sum(ArrayA)=Sum(ArrayB)÷(n+1)
+    Bi​=Ai​+Sum(ArrayA)
+    𝐴𝑖=𝐵𝑖−𝑆𝑢𝑚(𝐴𝑟𝑟𝑎𝑦𝐴)Ai=Bi​−Sum(ArrayA)
+    */
 }
 int main()
   {

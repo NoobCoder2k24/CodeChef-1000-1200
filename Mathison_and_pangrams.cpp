@@ -84,21 +84,55 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
-    cin>>n;
+    int a[26];
     string s;
+    //approach 1
+    // int sum{},sum2{};
+    // for(int i=0; i<26; i++)
+    // {
+    //     cin>>a[i];
+    //     sum+=a[i];
+    // }
+    // cin>>s;
+    // set<char>se;
+    // for(int i=0; i<s.length(); i++)
+    // se.insert(s[i]);
+    // for(auto i=se.begin(); i!=se.end(); i++)
+    //     sum2+=a[(*i)-97];
+    // cout<<abs(sum2-sum)<<endl;
+    
+    
+    // approach 2
+    // string s1="abcdefghijklmnopqrstuvwxyz";
+    // for(int i=0; i<26; i++)
+    // cin>>a[i];
+    // map<char,int>m;
+    // cin>>s;
+    // for(int i=0; i<s.size(); i++)
+    //     m[s[i]]++;
+    // int sum{};
+    // for(int i=0; i<26; i++)
+    // {
+    //     if(m[s1[i]]==0)
+    //     sum+=a[i];
+    // }
+    // cout<<sum<<endl;
+
+    // approach3
+    int sum{};
+    for(int i=0; i<26; i++)
+        cin>>a[i];
     cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    set<char>se;
+    for(int i=0; i<s.length(); i++)
+    se.insert(s[i]);
+    for(int i=0; i<26; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        auto it=se.find(char(i+97));
+        if(it==se.end())
+        sum+=a[i];
     }
-    cout<<s2<<endl;
+    cout<<sum<<endl;
 }
 int main()
   {

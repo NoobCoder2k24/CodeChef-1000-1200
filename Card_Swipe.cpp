@@ -86,23 +86,39 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int a[n];
+    for(int i=0; i<n; i++)
+      cin>>a[i];
+    map<int,int>m;
+    int count{},ma{};
+    // for(int i=0; i<n; i++)
+    // {
+    //   if(m[a[i]]==0)
+    //   {
+    //     count++;
+    //     m[a[i]]++;
+    //   }
+    //   else
+    //   {
+    //     m[a[i]]--;
+    //     count--;
+    //   }
+    //   ma=max(ma,count);
+    // }
+    // cout<<ma<<endl;
     for(int i=0; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+      m[a[i]]++;
+      if(m[a[i]]%2==1)
+        count++;
+      else
+        count--;
+      ma=max(ma,count);
     }
-    cout<<s2<<endl;
+    cout<<ma<<endl;
 }
 int main()
   {
-  fast_cin();
   ll t;
   cin >> t;
   for(int i=0;i<t;i++)

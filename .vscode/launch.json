@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/CodeChef 2Star",
-      "program": "d:/CodeChef 2Star/build/Debug/outDebug",
+      "cwd": "d:/CodeChef-1000-1200",
+      "program": "d:/CodeChef-1000-1200/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -88,17 +88,20 @@ void solve()
     cin>>n;
     string s;
     cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    int i{},y{};
+    for(int j{}; j<s.size();j++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+        if(s[j]=='I')
+        i++;
+        else if(s[j]=='Y')
+        y++;
     }
-    cout<<s2<<endl;
+    if(i>0 && y==0)
+    cout<<"INDIAN"<<endl;
+    else if(y>0 && i==0)
+    cout<<"NOT INDIAN"<<endl;
+    else
+    cout<<"NOT SURE"<<endl;
 }
 int main()
   {

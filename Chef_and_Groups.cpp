@@ -84,21 +84,30 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
-    cin>>n;
     string s;
     cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    int count{};
+    char c=s[0];
+    for(int i=1; i<s.size(); i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+      if(s[i-1]=='1' && s[i]=='0')
+        count++;
+      c=s[i];   
     }
-    cout<<s2<<endl;
+    if(c=='1')
+    cout<<count+1<<endl;
+    else
+    cout<<count<<endl;
+
+    //approach
+    /*
+    For a string like 0110110111 if we count all occurrences of 10 we will get the number
+    of groups as it is the point of transition from a filled seat to empty. The only one
+    remaining case would be if the last seat was filled we won't get that transition. So,
+    we iterate and count all 10 instances by maintaining a variable with previous element
+    in string. And at the end add to the total count if the last chair was filled to 
+    account for the edge case
+    */
 }
 int main()
   {

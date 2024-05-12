@@ -86,19 +86,17 @@ void solve()
 {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
+    int a[n],o{};
     for(int i=0; i<n; i++)
-    {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+    { 
+        cin>>a[i];
+        if(a[i]%2!=0)
+        o++;
     }
-    cout<<s2<<endl;
+    if(o%2==0 && o!=0)
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
 }
 int main()
   {

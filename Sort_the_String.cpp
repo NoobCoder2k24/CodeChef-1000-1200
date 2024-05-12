@@ -88,17 +88,34 @@ void solve()
     cin>>n;
     string s;
     cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
+    // int sum{};
+    // if(is_sorted(s.begin(),s.end()))
+    // cout<<0<<endl;
+    // else
+    // {
+    // for(int i=0; i<n; i++)
+    // {
+    //     if(s[i]=='1')
+    //     sum++;
+    // }
+    // if(s[n-1]=='1')
+    // sum--;
+    // for(int i=1; i<n; i++)
+    // {
+    //     if(s[i]==s[i-1] && s[i]=='1')
+    //     sum--;
+    // }
+    // cout<<sum<<endl;
+    // }
+    //another approach just count the occurrences of 1 and 0 
+    int count{};
+    for(int i=1; i<n; i++)
     {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
+      if(s[i]=='0' && s[i-1]=='1')
+      count++;
     }
-    cout<<s2<<endl;
+    cout<<count<<endl;
+    
 }
 int main()
   {

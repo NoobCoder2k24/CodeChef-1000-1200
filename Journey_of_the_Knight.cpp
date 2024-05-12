@@ -84,21 +84,30 @@ double eps = 1e-12;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    for(int i=0; i<=n-2; i+=2)
-        swap(s[i],s[i+1]);
-    string s2="";
-    for(int i=0; i<n; i++)
-    {
-        if(s[i]>=n)
-        s2+='z'-s[i]+'a';
-        else
-        s2+='m'-s[i]+'n';
-    }
-    cout<<s2<<endl;
+    int x1,y1,x2,y2;
+    cin>>x1>>y1>>x2>>y2;
+    if((x1+y1)%2==0 && (x2+y2)%2==0)
+    cout<<"YES"<<endl;
+    else if((x1+y1)%2!=0 && (x2+y2)%2!=0)
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
+    /*
+    If a knight is on a black square, in the next move it will be on the white and vice 
+    versa. A subtle distinction between black and white squares lies in the sum of their
+    coordinates i.e. if one of them is even other will be odd. From the above point, the
+    parity of the sum of coordinates in moves 0,2,4,...,100 will be the same.
+    */
+
+    /*
+    Draw a chess board and see that the knight if does an odd number of moves ends up on a
+    different color square than before, and if does an even number of moves ends up on the
+    same color square as before Hence if the knight has to reach a square different color 
+    than his then he has to perform an odd number of moves and since the number of moves 
+    is set to 100 which is even Knight will only reach a square which is the same color as
+    his always hence if the parity of the sum of the initial position and final position 
+    of squares is the same then YES else NO. EZZZ
+    */
 }
 int main()
   {
